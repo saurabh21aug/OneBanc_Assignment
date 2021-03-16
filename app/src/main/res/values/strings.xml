@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">OneBancAssignment</string>
+    <string name="response_not_found">Response tag not found</string>
+    <string name="mobile_tag_not_found">Mobile number tag not found</string>
+    <string name="bank_tag_not_found">Bank tag not found</string>
+    <string name="tag_not_found">tag not found</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="pay">Pay</string>
+    <string name="decline">Decline</string>
+    <string name="cancel">Cancel</string>
+    <string name="you_paid">You Paid</string>
+    <string name="you_requested">You Requested</string>
+    <string name="you_received">You Received</string>
+    <string name="request_received">Request received</string>
+    <string name="amount">₹ %s</string>
+    <string name="enter_user_id">Enter user id</string>
+    <string name="enter_recipient_id">Enter recipient Id</string>
+    <string name="submit">Submit</string>
+
+</resources>
