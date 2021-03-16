@@ -11,6 +11,9 @@ import com.sample.util.convertDateFormat
 import com.sample.data.Transaction
 import com.sample.ui.TransactionDetailActivity
 import com.rxandroid_retrofit_recycleview_kotlin.data.TransactionHistory
+import com.sample.util.isNetworkAvailable
+import com.sample.util.snackbar
+import kotlinx.android.synthetic.main.activity_transaction_details.*
 import kotlinx.android.synthetic.main.item_layout_left.view.*
 import kotlinx.android.synthetic.main.item_layout_right.view.*
 
@@ -60,11 +63,15 @@ class TransactionAdapter(
                     layoutCancelR.visibility = View.VISIBLE
                 }
                 layoutParentR.setOnClickListener {
-                    val intent = Intent(context, TransactionDetailActivity::class.java)
-                    intent.putExtra(USER_ID, userId)
-                    intent.putExtra(TRANSACTION_ID, transaction.id.toString())
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                    context.startActivity(intent)
+                    if (isNetworkAvailable(context)) {
+                        val intent = Intent(context, TransactionDetailActivity::class.java)
+                        intent.putExtra(USER_ID, userId)
+                        intent.putExtra(TRANSACTION_ID, transaction.id.toString())
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        context.startActivity(intent)
+                    } else {
+                        itemView.snackbar("Check internet connection")
+                    }
                 }
             }
 
@@ -101,11 +108,15 @@ class TransactionAdapter(
             }
 
             itemView.layoutParentL.setOnClickListener {
-                val intent = Intent(context, TransactionDetailActivity::class.java)
-                intent.putExtra(USER_ID, userId)
-                intent.putExtra(TRANSACTION_ID, transaction.id.toString())
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                context.startActivity(intent)
+                if (isNetworkAvailable(context)) {
+                    val intent = Intent(context, TransactionDetailActivity::class.java)
+                    intent.putExtra(USER_ID, userId)
+                    intent.putExtra(TRANSACTION_ID, transaction.id.toString())
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(intent)
+                } else {
+                    itemView.snackbar("Check internet connection")
+                }
             }
         }
     }
