@@ -44,8 +44,8 @@ class TransactionHistoryActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.visibility = View.INVISIBLE
 
-        val helper: SnapHelper = LinearSnapHelper()
-        helper.attachToRecyclerView(recyclerView)
+//        val helper: SnapHelper = LinearSnapHelper()
+//        helper.attachToRecyclerView(recyclerView)
 
         if (intent.hasExtra(HomeActivity.USER_ID)) {
             val userId = intent.getStringExtra(HomeActivity.USER_ID)
